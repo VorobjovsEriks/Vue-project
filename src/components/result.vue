@@ -1,5 +1,5 @@
 <template>
-  <div class="result-wrapper" v-if="data.correct">
+  <div class="result-wrapper" v-if="data.total">
     <h1 class="title">{{ `Thanks, ${name}!` }}</h1>
     <div class="results">
       {{ `You responded correctly to ${data.correct} out of ${data.total} questions.` }}
