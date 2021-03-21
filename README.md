@@ -17,7 +17,7 @@ npm run build
 
 ##Description
 ```
-For a quick settup used vue cli
+For setup used vue cli
 for error displaying for development /services/ErrorService.js, App.vue ~61 for error Alert for users
 Axios for API requests.
 localStorage to save users name when finishing quiz, could be used to save finished quizzes and correct answers
