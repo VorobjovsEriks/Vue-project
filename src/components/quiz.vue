@@ -4,6 +4,9 @@
       <loading></loading>
     </div>
     <div v-else-if="data">
+      <div class="progress-bar-wrapper">
+        <div class="progress" :style="{ width: progress + '%' }"></div>
+      </div>
       <div class="quiz__question">
         {{ data[currentQuestion].title }}
       </div>
@@ -51,6 +54,7 @@ export default {
       loading: true,
       questionCount: 0,
       finished: false,
+      progress: 0,
     };
   },
   props: {
@@ -70,10 +74,10 @@ export default {
         this.addAnswer();
         this.pendingAnswer = null;
         this.currentQuestion++;
+        this.updateProgress();
       } else {
         this.error = "select an answer";
       }
-
     },
     getAnswers: async function () {
       await axios.get(this.apiUrl + "?action=answers&quizId=" + this.quizId + "&questionId="
@@ -123,6 +127,9 @@ export default {
         stringifiedAnswers = stringifiedAnswers + `&answers[]=${answer}`;
       }
       return stringifiedAnswers;
+    },
+    updateProgress: function () {
+      this.progress = this.currentQuestion / this.questionCount * 100;
     }
   },
   watch: {
@@ -139,7 +146,7 @@ export default {
         this.getAnswers();
         this.finished = true;
       }
-    }
+    },
   }
 };
 </script>
@@ -152,6 +159,29 @@ export default {
 
   @media (min-width: $d-breakpoint) {
     min-width: 550px;
+  }
+}
+
+.progress-bar-wrapper {
+  width: calc(100% - 40px);
+  border: 1px solid #e7be0a66;
+  height: 10px;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .progress {
+    background: #e7be0a;
+    height: 100%;
+    transition: width ease-in 2s;
+  }
+
+  @media (min-width: $d-breakpoint) {
+    width: calc(70% - 40px);
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
