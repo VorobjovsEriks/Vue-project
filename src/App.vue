@@ -1,7 +1,7 @@
 <template>
   <div class="content">
-    <div class="error-container">
-      <span class="error-message" v-if="this.error">
+    <div class="error-container" v-if="this.error">
+      <span class="error-message">
         {{ error }}
       </span>
     </div>
