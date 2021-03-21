@@ -1,0 +1,24 @@
+//Desktop
+$d-max-width: 800px;
+$d-min-width: 800px;
+$d-text-size: 18px;
+$d-title-size: 36px;
+
+//Mobile
+$m-max-width: 650px;
+$m-min-width: 300px;
+$m-min-height: 500px;
+$m-max-height: unset;
+$m-text-size: 16px;
+$m-title-size: 28px;
+
+//Colors
+$error-color: #ff3333;
+$white: #ffffff;
+$black: #000000;
+$bg-yellow: #ded499;
+$bg-yellow-hover: #e7be0a;
+$loading-blue: #07d;
+
+//Breakpoints
+$d-breakpoint: 1030px;

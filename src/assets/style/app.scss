@@ -1,0 +1,88 @@
+@import "./_variables.scss";
+
+html,
+body{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  background: url("assets/images/bgQuiz.jpg") center;
+  background-size: cover;
+  overflow: auto;
+}
+
+.content {
+  max-width: $m-max-width;
+  min-width: $m-min-width;
+  padding: 40px 0;
+  margin: auto 10px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid grey;
+  background: $white;
+
+  @media (min-width: 1030px) {
+    min-width: $d-min-width;
+    max-width: $d-max-width;
+    min-height: 400px;
+  }
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  margin: 15px 0 0;
+  width: 100%;
+  max-width: 250px;
+  border-radius: 5px;
+  border: 1px solid #808080;
+}
+
+select,
+button {
+  cursor: pointer;
+}
+
+button {
+  &:hover {
+    background: #cacaca;
+  }
+}
+
+.error-container {
+  height: 20px;
+  margin: 10px;
+
+  .error-message {
+    color: $error-color;
+    font-size: $d-text-size;
+  }
+}
+
+body.swal2-height-auto {
+  height: 100%!important;
+}
